@@ -7,30 +7,30 @@
 </head>
 <body>
 	<?php
-	echo "Mamy aktualnie ".date('H:i');
+	echo "Mamy aktualnie ".date('H:i'); // aktualna data i godzina
 	echo " dnia ".date('d.m.Y');
 	echo "r.<br>";
-    if(isset($_POST['oblicz'])&&($_POST['oblicz']=="Oblicz!"))
+    if(isset($_POST['oblicz'])&&($_POST['oblicz']=="Oblicz!")) // zabezpieczenie - jesli przycisk jest wcisniety to wykonaj php jesli nie, pokaz formularz
     {
 		$godzina = $_POST['godzina'];
 		$minuta = $_POST['minuta'];
 		//$pora_dnia = $_POST['pora_dnia'];
 		$oblicz = $_POST['oblicz'];
 		
-		$dateSrc = "2017-10-20 $godzina:$minuta GMT"; 
-		$data = new DateTime($dateSrc);
+		$dateSrc = "2017-10-20 $godzina:$minuta GMT"; // wpisanie godziny i minuty wybranej przez usera do zmiennej
+		$data = new DateTime($dateSrc); // uzycie zmiennej z godzina usera
 		$data2 = new DateTime($dateSrc);
 		$data3 = new DateTime($dateSrc);
-		$data -> modify('+9 hour + 14 minutes');
+		$data -> modify('+9 hour + 14 minutes'); // modyfikacja podanej godziny o prawidlowa liczbe cykli snu
 		$data2 -> modify('+7 hour  + 44 minutes');
 		$data3 -> modify('+6 hour + 14 minutes');
-		echo "Chcesz iść spać o ".$godzina.":".$minuta." więc powinieneś wstać o ".$data3->format('H:i A')." albo o ".$data2->format('H:i A')." albo o ".$data->format('H:i A').".";
+		echo "Chcesz iść spać o ".$godzina.":".$minuta." więc powinieneś wstać o <b>".$data3->format('H:i A')."</b> albo o <b>".$data2->format('H:i A')."</b> albo o <b>".$data->format('H:i A')."</b>.";
     }
     else
     {
          ?>   
     <form action="kiedy_spac.php" method="post">
-		<p>Kiedy idziesz spać?<br>
+		Kiedy idziesz spać?<br><br>
 		<select name="godzina">
 			<option>01</option>
 			<option>02</option>
@@ -81,10 +81,3 @@
 	<p><a href="index.php">Wróć do strony głównej.</a></p>
 </body>
 </html>
-
-
-
-
-
-
-
