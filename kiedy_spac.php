@@ -3,19 +3,28 @@
 <head>
 <title>Kiedy spać?</title>
 <meta charset="utf-8"/>
+<link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
 	<?php
 	echo "Mamy aktualnie ".date('H:i');
 	echo " dnia ".date('d.m.Y');
 	echo "r.<br>";
-    if(isset($_POST['oblicz'])&&($_POST['teraz']=="oblicz"))
+    if(isset($_POST['oblicz'])&&($_POST['oblicz']=="Oblicz!"))
     {
-		$godzina = @$_POST['godzina'];
-		$minuta = @$_POST['minuta'];
-		$pora_dnia = @$_POST['pora_dnia'];
-		$oblicz = @$_POST['oblicz'];
-		$teraz = @$_POST['teraz'];
+		$godzina = $_POST['godzina'];
+		$minuta = $_POST['minuta'];
+		//$pora_dnia = $_POST['pora_dnia'];
+		$oblicz = $_POST['oblicz'];
+		
+		$dateSrc = "2017-10-20 $godzina:$minuta GMT"; 
+		$data = new DateTime($dateSrc);
+		$data2 = new DateTime($dateSrc);
+		$data3 = new DateTime($dateSrc);
+		$data -> modify('+9 hour + 14 minutes');
+		$data2 -> modify('+7 hour  + 44 minutes');
+		$data3 -> modify('+6 hour + 14 minutes');
+		echo "Chcesz iść spać o ".$godzina.":".$minuta." więc powinieneś wstać o ".$data3->format('H:i A')." albo o ".$data2->format('H:i A')." albo o ".$data->format('H:i A').".";
     }
     else
     {
@@ -23,18 +32,30 @@
     <form action="kiedy_spac.php" method="post">
 		<p>Kiedy idziesz spać?<br>
 		<select name="godzina">
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-			<option>6</option>
-			<option>7</option>
-			<option>8</option>
-			<option>9</option>
+			<option>01</option>
+			<option>02</option>
+			<option>03</option>
+			<option>04</option>
+			<option>05</option>
+			<option>06</option>
+			<option>07</option>
+			<option>08</option>
+			<option>09</option>
 			<option>10</option>
 			<option>11</option>
 			<option>12</option>
+			<option>13</option>
+			<option>14</option>
+			<option>15</option>
+			<option>16</option>
+			<option>17</option>
+			<option>18</option>
+			<option>19</option>
+			<option>20</option>
+			<option>21</option>
+			<option>22</option>
+			<option>23</option>
+			<option>24</option>
 		</select>:<select name="minuta">
 			<option>05</option>
 			<option>10</option>
@@ -48,15 +69,16 @@
 			<option>50</option>
 			<option>55</option>
 		</select>
-		<select name="pora_dnia">
+		<!-- <select name="pora_dnia">
 			<option>AM</option>
-			<option>PM</option>
-		</select>
+			<option>PM</option> 
+		</select>-->
 		<input type="submit" name="oblicz" value="Oblicz!"/></p>
 	</form>
     <?php
     }
     ?>
+	<p><a href="index.php">Wróć do strony głównej.</a></p>
 </body>
 </html>
 

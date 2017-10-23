@@ -3,6 +3,7 @@
 <head>
 <title>Kalkulator Snu</title>
 <meta charset="utf-8"/>
+<link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
 	<h1 align="center">Kalkulator Snu.</h1>

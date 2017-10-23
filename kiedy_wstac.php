@@ -3,6 +3,7 @@
 <head>
 <title>Kiedy wstać?</title>
 <meta charset="utf-8"/>
+<link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
 	<?php
@@ -32,6 +33,7 @@
     <?php
     }
     ?>
+	<p><a href="index.php">Wróć do strony głównej.</a></p>
 </body>
 </html>
 
