@@ -21,16 +21,17 @@
 		$data = new DateTime($dateSrc); // uzycie zmiennej z godzina usera
 		$data2 = new DateTime($dateSrc);
 		$data3 = new DateTime($dateSrc);
-		$data -> modify('+9 hours'); // modyfikacja podanej godziny o prawidlowa liczbe cykli snu
-		$data2 -> modify('+7 hour  + 30 minutes');
-		$data3 -> modify('+6 hour');
-		echo "Chcesz zasnąć o ".$godzina.":".$minuta." więc powinieneś wstać o <b>".$data3->format('H:i A')."</b> albo o <b>".$data2->format('H:i A')."</b> albo o <b>".$data->format('H:i A')."</b>.<br>Pamiętaj, że czas liczony jest od momentu zaśnięcia, a nie położenia się do łóżka. Średni czas potrzebny do zaśnięcia dla człowieka to 14 minut.";
+		$data -> modify('-9 hour'); // modyfikacja podanej godziny o prawidlowa liczbe cykli snu
+		$data2 -> modify('-7 hour  - 30 minutes');
+		$data3 -> modify('-6 hour');
+		echo "Chcesz wstać o ".$godzina.":".$minuta." więc powinieneś zasnąć o <b>".$data3->format('H:i A')."</b> albo o <b>".$data2->format('H:i A')."</b> albo o <b>".$data->format('H:i A')."</b>.<br>Uwzględnij to, że przeciętnemu człowiekowi potrzeba 14 minut na zaśnięcie. Powyższe godziny dotyczą snu a nie położenia się do łóżka.";
+		
     }
     else
     {
          ?>   
-    <form action="kiedy_spac.php" method="post">
-		Kiedy idziesz spać?<br><br>
+    <form action="kiedy_spac2.php" method="post">
+		Kiedy chcesz wstać?<br><br>
 		<select name="godzina">
 			<option>01</option>
 			<option>02</option>
