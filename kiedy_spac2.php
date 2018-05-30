@@ -68,7 +68,7 @@
 				<option>22</option>
 				<option>23</option>
 				<option>24</option>
-				</select></div>:<div clas="col-4 align-self-center"><select class="form-control" name="minuta">
+				</select></div><div clas="col-4 align-self-center"><select class="form-control" name="minuta">
 				<option>00</option>
 				<option>05</option>
 				<option>10</option>
